@@ -1,10 +1,9 @@
+#include <iostream>
+
 class vec3 {
 public:
-    int x, y, z;
+    float x, y, z;
     vec3(float p0, float p1, float p2) { x = p0; y = p1; x = p2; };
-    // inline float x() const { return p[0]; };
-    // inline float y() const { return p[1]; };
-    // inline float z() const { return p[2]; };
 
     inline float operator [](int i) const {
         if (i == 0) return x;
@@ -34,5 +33,3 @@ inline std::ostream& operator<<(std::ostream &os, vec3 &v) {
     os << v.x << " " << v.y << " " << v.z;
     return os;
 }
-
-
