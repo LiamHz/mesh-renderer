@@ -3,6 +3,7 @@
 class vec2 {
 public:
     float x, y;
+    vec2() {};
     vec2(float p0, float p1) { x = p0; y = p1; };
 
     inline float operator [](int i) const {
@@ -16,6 +17,9 @@ public:
     inline vec2 operator -(const vec2 &v) const { return vec2(x-v.x, y-v.y); }
     inline vec2 operator *(const float f) const { return vec2(x*f, y*f); }
     inline vec2 operator /(const float f) const { return vec2(x/f, y/f); }
+
+    inline bool operator ==(const vec2 &v) const { return (x == v.x && y == v.y); }
+    inline bool operator !=(const vec2 &v) const { return (x != v.x || y != v.y); }
 
     // Hadarmard product
     inline vec2 operator *(const vec2 &v) const { return vec2(x*v.x, y*v.y); }
