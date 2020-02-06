@@ -9,6 +9,7 @@ public:
         if (i == 0) return x;
         else if (i == 1) return y;
         else if (i == 2) return z;
+        else throw std::invalid_argument( "index must be 0, 1, or 2" );
     }
 
     inline vec3 operator -() const { return vec3(-x, -y, -z); }

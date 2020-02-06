@@ -8,6 +8,7 @@ public:
     inline float operator [](int i) const {
         if (i == 0) return x;
         else if (i == 1) return y;
+        else throw std::invalid_argument( "index must be 0 or 1" );
     }
 
     inline vec2 operator -() const { return vec2(-x, -y); }
