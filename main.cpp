@@ -1,44 +1,27 @@
-// Implement Vec3 class
-// Implement display of points
-// Implement line drawing
-// Implement triangle drawing
-// Implement mesh rendering
+// DONE Implement Vec3 library
+// DONE Import TGA library
+// TODO Implement display of points
+// TODO Implement line drawing
+// TODO Implement triangle drawing
+// TODO Implement mesh rendering
 
 #include <iostream>
-
 #include "vec3.h"
+#include "tga.h"
 
 using std::cout;
 
-
+const TGAColor white = TGAColor(255, 255, 255, 255);
+const TGAColor red   = TGAColor(255, 0,   0,   255);
 
 int main() {
-    vec3 a(1, 2, 3);
-    vec3 b(11, 22, 33);
+    TGAImage image(100, 100, TGAImage::RGB);
+    image.set(52, 41, red);
 
-    // Test vec3 lib
-    float xpos = a.x();
-    vec3 neg_a = -a;
-    vec3 p = a+b;
-    vec3 q = a-b;
-    vec3 r = a*b;
-    vec3 s = a/b;
-    vec3 t = a/b;
-    vec3 u = a*5;
-    vec3 v = a/5;
-    float w = dot(a, b);
+    // Set origin at bottom left instead of top right of image
+    image.flip_vertically();
 
-    cout << xpos << std::endl;
-    cout << neg_a << std::endl;
-    cout << q << std::endl;
-    cout << r << std::endl;
-    cout << r << std::endl;
-    cout << s << std::endl;
-    cout << t << std::endl;
-    cout << u << std::endl;
-    cout << v << std::endl;
-    cout << w << std::endl;
-    cout << b << std::endl;
+    image.write_tga_file("output.tga");
 
     return 0;
 }
